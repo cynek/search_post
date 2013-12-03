@@ -1,0 +1,14 @@
+= link_to 'New', new_post_url
+= form_tag posts_url, :method => :get do
+  = select_tag 'query[city]', options_from_collection_for_select(City.all, :id, :name, query[:city]), :prompt => "Select city"
+  = text_field_tag 'query[text]', query[:text]
+  = submit_tag 'search'
+
+%ul
+- @posts.each do |post|
+  %li
+    = image_tag post.image_url
+    .city= post.city.try(:name)
+    .title= post.title
+    .content= post.content
+    .user= post.user.try(:name)

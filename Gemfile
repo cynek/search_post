@@ -38,5 +38,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
 gem 'redis-classy'
 gem 'sphinx-integration', '= 1.2.2'
+gem 'haml-rails'

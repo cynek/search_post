@@ -1,0 +1,5 @@
+= form_for @post do |f|
+  = f.text_field :title
+  = f.text_area :content
+  = f.collection_select :city_id, City.all, :id, :name, prompt: true
+  = f.collection_select :user_id, User.all, :id, :name
