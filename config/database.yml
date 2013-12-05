@@ -1,12 +1,8 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: search_post_development
-  user: danil
-  password: "12345"
-  pool: 5
-  timeout: 5000
+  database: search_product
+  username: korotaev
+  password: 2RUto7Re
+  host: pg.dev.apress.ru
+  port: 5432
+

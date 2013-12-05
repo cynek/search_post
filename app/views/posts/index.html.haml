@@ -5,6 +5,11 @@
   = submit_tag 'search'
 
 %ul
+- @cities.each_with_group_and_count do |_, city_id, count|
+  %li
+    .city= City.find(city_id).name
+    .count= count
+%ul
 - @posts.each do |post|
   %li
     = image_tag post.image_url

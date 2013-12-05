@@ -17,13 +17,11 @@ class PostsController < ApplicationController
 
   def index
     @query = params[:query]
-    @posts = if @query.blank?
-               Post.all
-             else
-               loader = Post.scoped
-               loader = loader.by_city(query[:city]) if query[:city]
-               loader.search(query[:text])
-             end
+    loader = Post.scoped
+    loader.by_city(query[:city]) if query[:city].present?
+    loader.with_text(query[:text]) if query[:text].present?
+    @cities = loader.duplicate.group_by_city.result
+    @posts = loader.result
   end
 
   def find_user
